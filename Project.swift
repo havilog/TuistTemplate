@@ -1,8 +1,59 @@
 import ProjectDescription
 
-let projectName: String = "iOSTemplateApp"
-let organizationName: String = "softbay"
-let bundleName: String = "com.softbay"
+let projectName: String = "TemplateApp"
+let organizationName: String = "havi"
+let bundleName: String = "com.havi"
+
+let schemes = [
+    Scheme(
+        name: "\(projectName)-Debug",
+        shared: true,
+        buildAction: BuildAction(targets: ["\(projectName)"]),
+        testAction: TestAction(
+            targets: ["\(projectName)Tests"],
+            configurationName: "Debug",
+            coverage: true
+        ),
+        runAction: RunAction(configurationName: "Debug"),
+        archiveAction: ArchiveAction(configurationName: "Debug"),
+        profileAction: ProfileAction(configurationName: "Debug"),
+        analyzeAction: AnalyzeAction(configurationName: "Debug")
+    ),
+    Scheme(
+        name: "\(projectName)-Inhouse",
+        shared: true,
+        buildAction: BuildAction(targets: ["\(projectName)"]),
+        testAction: TestAction(
+            targets: ["\(projectName)Tests"],
+            configurationName: "Inhouse",
+            coverage: true
+        ),
+        runAction: RunAction(configurationName: "Inhouse"),
+        archiveAction: ArchiveAction(configurationName: "Inhouse"),
+        profileAction: ProfileAction(configurationName: "Inhouse"),
+        analyzeAction: AnalyzeAction(configurationName: "Inhouse")
+    ),
+    Scheme(
+        name: "\(projectName)-Release",
+        shared: true,
+        buildAction: BuildAction(targets: ["\(projectName)"]),
+        testAction: TestAction(
+            targets: ["\(projectName)Tests"],
+            configurationName: "Release",
+            coverage: true
+        ),
+        runAction: RunAction(configurationName: "Release"),
+        archiveAction: ArchiveAction(configurationName: "Release"),
+        profileAction: ProfileAction(configurationName: "Release"),
+        analyzeAction: AnalyzeAction(configurationName: "Release")
+    ),
+]
+
+let settings = Settings(configurations: [
+    .debug(name: "Debug"),
+    .debug(name: "Inhouse"),
+    .release(name: "Release")
+])
 
 let targetActions = [
     TargetAction.pre(
@@ -54,5 +105,7 @@ let targets = [
 let project = Project(
     name: projectName,
     organizationName: organizationName,
-    targets: targets
+    settings: settings,
+    targets: targets,
+    schemes: schemes
 )

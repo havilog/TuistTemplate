@@ -2,22 +2,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,xcode,swift,cocoapods
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,swift,cocoapods
 
-### Tuist derived files ###
-graph.dot
-Derived/
-
-### fastlane ###
-
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
-
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
-
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
 
@@ -149,11 +133,24 @@ iOSInjectionProject/
 ## Gcc Patch
 /*.gcno
 
-### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-**/xcshareddata/WorkspaceSettings.xcsettings
+### Tuist derived files ###
+graph.dot
+Derived/
+
+### Projects ###
+*.xcodeproj
+*.xcworkspace
+
+### fastlane ###
+
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,xcode,swift,cocoapods
