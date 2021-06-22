@@ -1,7 +1,8 @@
 disabled_rules:
-- file_length
-- identifier_name
-- unused_closure_parameter
+- file_length # 한 파일당 1000줄 이상일 경우
+- identifier_name # 변수명에 _ 등 이 들어갈 경우
+- trailing_whitespace # 엔터 쳤을 때 default tab
+- unused_closure_parameter # 클로져 안에 안쓰이는 변수가 있을 때
 
 included:
 - iOSTemplateApp
