@@ -1,0 +1,13 @@
+disabled_rules:
+- file_length
+- identifier_name
+- unused_closure_parameter
+
+included:
+- iOSTemplateApp
+
+excluded:
+- Pods
+
+line_length: 110
+function_body_length: 100
