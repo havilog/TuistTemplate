@@ -1,6 +1,6 @@
 import ProjectDescription
 
-let projectName: String = "TemplateApp"
+let projectName: String = "iOSTemplateApp"
 let organizationName: String = "havi"
 let bundleName: String = "com.havi"
 
@@ -50,9 +50,18 @@ let schemes = [
 ]
 
 let settings = Settings(configurations: [
-    .debug(name: "Debug"),
-    .debug(name: "Inhouse"),
-    .release(name: "Release")
+    .debug(name: "Debug", settings: [
+        "Template_Bundle_Identifier": "\(bundleName).iOSTemplateApp",
+        "Template_Bundle_Name": "Template_Debug"
+    ]),
+    .debug(name: "Inhouse", settings: [
+        "Template_Bundle_Identifier": "\(bundleName).iOSTemplateApp-Inhouse",
+        "Template_Bundle_Name": "Template_Inhouse"
+    ]),
+    .release(name: "Release", settings: [
+        "Template_Bundle_Identifier": "\(bundleName).iOSTemplateApp",
+        "Template_Bundle_Name": "Template_Release"
+    ])
 ])
 
 let targetActions = [
