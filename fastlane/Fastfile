@@ -1,0 +1,35 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Template App Release test"
+  lane :release do
+    increment_version_number(
+      version_number: "1.0"
+    )
+
+    increment_build_number(
+      build_number: "1"
+    )
+
+    build_app(
+      workspace: "iOSTemplateApp.xcworkspace",
+      scheme: "iOSTemplateApp-Release",
+      export_options: {
+        method: "app-store",
+        provisioningProfiles: {
+          "com.havi.iOSTemplateApp" => "SampleApp_Distribution"
+        },
+        iCloudContainerEnvironment: "Production"
+      }
+    )
+
+    upload_to_app_store(
+      force: true,
+      reject_if_possible: true, 
+      skip_metadata: true,
+      skip_screenshots: true,
+      submit_for_review: true,
+      automatic_release: false
+    )
+  end
+end

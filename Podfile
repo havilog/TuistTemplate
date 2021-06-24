@@ -4,6 +4,9 @@ target 'iOSTemplateApp' do
   use_frameworks!
 
   # Firebase
+  
+  pod 'Firebase/Analytics', '~> 8.1.1'
+  pod 'Firebase/Crashlytics', '~> 8.1.1'
 
   # Network
   

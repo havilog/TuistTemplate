@@ -69,6 +69,11 @@ let targetActions = [
         path: "Scripts/SwiftLintRunScript.sh",
         arguments: [],
         name: "SwiftLint"
+    ),
+    TargetAction.pre(
+        path: "Scripts/FirebaseCrashlyticsScript.sh",
+        arguments: [],
+        name: "Crashlytics"
     )
 ]
 
@@ -81,7 +86,11 @@ let targets = [
         deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone]),
         infoPlist: "\(projectName)/Supporting/Info.plist",
         sources: "\(projectName)/Sources/**",
-        resources: "\(projectName)/Resources/**",
+        resources: [
+            "\(projectName)/Resources/**",
+//            .folderReference(path: "\(projectName)/Supporting"),
+            "\(projectName)/Supporting/GoogleService-Info.plist"
+        ],
         actions: targetActions,
         dependencies: [
             .cocoapods(path: ".")
